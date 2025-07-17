@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h1 class="mb-4">Available Sweets</h1>
+    
+    <!-- Search Form -->
+    <form action="{{ url_for('search') }}" method="get" class="mb-4">
+        <div class="input-group">
+            <input type="text" name="query" class="form-control" placeholder="Search for sweets...">
+            <select name="by" class="form-select">
+                <option value="name">by Name</option>
+                <option value="category">by Category</option>
+            </select>
+            <button class="btn btn-outline-secondary" type="submit">Search</button>
+        </div>
+    </form>
+
+    <div class="row">
+        {% for sweet in sweets %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ sweet.name }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ sweet.category }}</h6>
+                        <p class="card-text">
+                            <strong>Price:</strong> ${{ "%.2f"|format(sweet.price) }}<br>
+                            <strong>In Stock:</strong> {{ sweet.quantity }}
+                        </p>
+                        {% if session.username %}
+                            <form action="{{ url_for('purchase_sweet_route', sweet_id=sweet.sweet_id) }}" method="post" class="d-flex">
+                                <input type="number" name="quantity" value="1" min="1" max="{{ sweet.quantity }}" class="form-control me-2" style="width: 70px;">
+                                <button type="submit" class="btn btn-primary btn-sm" {% if sweet.quantity == 0 %}disabled{% endif %}>Purchase</button>
+                            </form>
+                        {% else %}
+                            <p><a href="{{ url_for('login') }}">Log in</a> to purchase.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <p>No sweets available at the moment.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

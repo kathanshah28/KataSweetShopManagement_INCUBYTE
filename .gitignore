@@ -1,0 +1,4 @@
+.env
+trading.py
+templates/tradingjournalindex.html
+model/__pycache__

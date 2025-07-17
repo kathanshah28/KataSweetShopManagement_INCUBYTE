@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h1>Your Purchase History</h1>
+    {% if history %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Sweet Name</th>
+                    <th>Quantity</th>
+                    <th>Total Price</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in history %}
+                    <tr>
+                        <td>{{ item.orderId[:8] }}...</td>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>${{ "%.2f"|format(item.totalAmount) }}</td>
+                        <td>{{ item.purchaseDate.strftime('%Y-%m-%d %H:%M') }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>You have not made any purchases yet.</p>
+    {% endif %}
+{% endblock %}

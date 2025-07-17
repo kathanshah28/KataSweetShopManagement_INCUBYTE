@@ -1,0 +1,84 @@
+body {
+    background: #f2f5fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    color: #333;
+  }
+
+  .card {
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #222;
+  }
+
+  .card p {
+    margin: 0.25rem 0;
+    color: #555;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #0056b3, #003d80);
+  }
+
+  .btn-success {
+    background: linear-gradient(135deg, #28a745, #1e7e34);
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .btn-success:hover {
+    background: linear-gradient(135deg, #1e7e34, #155d27);
+  }
+
+  .modal-content {
+    border-radius: 16px;
+  }
+
+  .modal-header {
+    background: #007bff;
+    color: #fff;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+  }
+
+  .modal-footer {
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+  }
+
+  .form-control {
+    border-radius: 8px;
+  }
+
+  .card-body.text-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
