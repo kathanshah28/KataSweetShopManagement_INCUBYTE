@@ -138,7 +138,7 @@ def add_sweet():
     
     return render_template('add_sweet.html')
 
-@app.route('/purchase/<int:sweet_id>', methods=['POST'])
+@app.route('/purchase/<sweet_id>', methods=['POST'])
 def purchase_sweet_route(sweet_id):
     """Handles the purchasing of a sweet."""
     if 'username' not in session:
