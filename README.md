@@ -1,0 +1,2 @@
+# KataSweetShopManagement_INCUBYTE
+A Assessment project
