@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h1 class="mb-4">Restock Sweet</h1>
+    
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Restocking: {{ sweet.name }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Current Quantity: {{ sweet.quantity }}</h6>
+            <hr>
+            <form method="post" action="{{ url_for('restock_sweet_route', sweet_id=sweet.sweet_id) }}">
+                <div class="mb-3">
+                    <label for="quantity" class="form-label">Quantity to Add</label>
+                    <input type="number" class="form-control" id="quantity" name="quantity" min="1" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Restock</button>
+                <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}

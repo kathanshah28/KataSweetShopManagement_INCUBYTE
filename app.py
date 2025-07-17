@@ -89,6 +89,7 @@ def login():
         user = shop.users_collection.find_one({"username": username, "password": password})
         if user:
             session['username'] = username
+            session['role'] = user.get('role', 'customer')  # Default to 'customer' if no role is set
             flash('Login successful!', 'success')
             return redirect(url_for('index'))
         else:
@@ -167,7 +168,15 @@ def delete_sweet_route(sweet_id):
     if 'username' not in session:
         flash('You must be logged in to delete sweets.', 'warning')
         return redirect(url_for('login'))
-    
+    if session.get('role') != 'admin':
+        flash('You do not have permission to perform this action.', 'danger')
+        return redirect(url_for('index'))
+    try:
+        shop.delete_sweet(sweet_id)
+        flash('Sweet successfully deleted.', 'success')
+    except ValueError as e:
+        flash(str(e), 'danger')
+    return redirect(url_for('index'))
     try:
         shop.delete_sweet(sweet_id)
         flash('Sweet successfully deleted.', 'success')
@@ -182,6 +191,9 @@ def restock_sweet_route(sweet_id):
     if 'username' not in session:
         flash('You must be logged in to restock items.', 'warning')
         return redirect(url_for('login'))
+    if session.get('role') != 'admin':
+        flash('You do not have permission to perform this action.', 'danger')
+        return redirect(url_for('index'))
         
     sweet = shop.sweets_collection.find_one({"sweet_id": sweet_id})
     if not sweet:

@@ -1,84 +1,111 @@
+/* General Body and Typography */
 body {
-    background: #f2f5fa;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
+    background: linear-gradient(120deg, #f8fafc 0%, #e0e7ef 100%);
+    margin: 0;
+    padding: 0;
+}
 
-  h2 {
+h1, h2 {
     text-align: center;
-    margin-bottom: 2rem;
+    color: #2d3a4a;
     font-weight: 600;
-    color: #333;
-  }
+    margin-top: 30px;
+    margin-bottom: 2rem;
+}
 
-  .card {
+/* Card Styling for Sweets */
+.card {
     border: none;
     border-radius: 16px;
     box-shadow: 0 6px 15px rgba(0,0,0,0.1);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
+}
 
-  .card:hover {
+.card:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-  }
+}
 
-  .card-title {
+.card-title {
     font-size: 1.2rem;
     font-weight: 700;
     color: #222;
-  }
+}
 
-  .card p {
-    margin: 0.25rem 0;
+.card-text {
     color: #555;
-  }
+}
 
-  .btn-primary {
-    background: linear-gradient(135deg, #007bff, #0056b3);
+/* Form and Input Styling */
+form.styled-form {
+    background: #fff;
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 30px 40px 20px 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(44, 62, 80, 0.08);
+}
+
+.form-control, .form-select {
+    border-radius: 8px;
+    border: 1px solid #cfd8dc;
+    transition: border 0.2s;
+}
+
+.form-control:focus, .form-select:focus {
+    border: 1.5px solid #4f8cff;
+    outline: none;
+    box-shadow: none;
+}
+
+/* Button Styling */
+.btn {
     border: none;
     border-radius: 8px;
     padding: 0.5rem 1rem;
-  }
+    font-weight: bold;
+    transition: background 0.2s;
+}
 
-  .btn-primary:hover {
+.btn-primary {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+}
+
+.btn-primary:hover {
     background: linear-gradient(135deg, #0056b3, #003d80);
-  }
+    color: white;
+}
 
-  .btn-success {
+.btn-success {
     background: linear-gradient(135deg, #28a745, #1e7e34);
-    border: none;
-    border-radius: 8px;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-  }
+    color: white;
+}
 
-  .btn-success:hover {
+.btn-success:hover {
     background: linear-gradient(135deg, #1e7e34, #155d27);
-  }
+    color: white;
+}
 
-  .modal-content {
+.btn-danger {
+    background: linear-gradient(135deg, #dc3545, #b02a37);
+    color: white;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(135deg, #b02a37, #8b222c);
+    color: white;
+}
+
+/* Modal Styling */
+.modal-content {
     border-radius: 16px;
-  }
+}
 
-  .modal-header {
+.modal-header {
     background: #007bff;
     color: #fff;
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
-  }
-
-  .modal-footer {
-    border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px;
-  }
-
-  .form-control {
-    border-radius: 8px;
-  }
-
-  .card-body.text-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
